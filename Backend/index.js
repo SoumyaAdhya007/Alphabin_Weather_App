@@ -4,8 +4,15 @@ const colors = require("colors");
 require("dotenv").config();
 const app = express();
 const PORT = process.env.PORT;
-app.use(cors());
+const { APIRouter } = require("./Routers/api.router");
 
+app.use(cors());
+app.use(express.json());
+
+// Mount the APIRouter to handle API routes under the '/api' prefix
+app.use("/api", APIRouter);
+
+// Start the server and listen on the specified port
 app.listen(PORT, () => {
-  console.log(`Server is running on ${PORT}`.underline.green);
+  console.log(`Server is running on ${PORT}`.underline.yellow);
 });
