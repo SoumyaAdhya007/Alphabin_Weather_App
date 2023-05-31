@@ -5,6 +5,7 @@ const fetch = (...args) =>
 const bcrypt = require("bcrypt");
 var jwt = require("jsonwebtoken");
 const { UserModel } = require("../Model/User.Model");
+const { Auth } = require("../Middleware/auth.middleware");
 
 const APIRouter = express.Router();
 const API_KEY = process.env.API_KEY;
@@ -45,7 +46,7 @@ APIRouter.post("/register", async (req, res) => {
             .status(201)
             .send({ message: "User registered successfully." });
         } catch (error) {
-          // Handle user registration error
+          // Handle any errors that occurred during the API request
           return res.status(500).send({ message: error.message });
         }
       }
@@ -92,7 +93,34 @@ APIRouter.post("/login", async (req, res) => {
       }
     });
   } catch (error) {
-    // Handle general error
+    // Handle any errors that occurred during the API request
+    res.status(500).send({ message: error.message });
+  }
+});
+
+// Handle the POST request to the '/userdetails' endpoint for User Details
+APIRouter.post("/userdetails", Auth, async (req, res) => {
+  // Middleware function 'Auth' is used to authenticate the request
+  const userId = req.body.userId;
+
+  try {
+    // Check if userId is provided
+    if (!userId) {
+      return res.status(400).send({ message: "Please provide UserId." });
+    }
+
+    // Find the user based on the provided userId
+    const user = await UserModel.findOne({ _id: userId });
+
+    // Check if the user is found
+    if (!user) {
+      return res.status(404).send({ message: "User not found." });
+    }
+
+    // Return the user details
+    return res.status(200).send(user);
+  } catch (error) {
+    // Handle any errors that occurred during the API request
     res.status(500).send({ message: error.message });
   }
 });
@@ -123,6 +151,123 @@ APIRouter.get("/weather", async (req, res) => {
 
     // Send the weather data as the response
     res.status(200).send(data);
+  } catch (error) {
+    // Handle any errors that occurred during the API request
+    res.status(500).send({ message: error.message });
+  }
+});
+
+// Handle the POST request to the '/addPreference' endpoint for Updating User Preference
+APIRouter.post("/addPreference", Auth, async (req, res) => {
+  // Middleware function 'Auth' is used to authenticate the request
+  const payload = req.body;
+  const userId = req.body.userId;
+
+  try {
+    // Check if userId is provided
+    if (!userId) {
+      return res.status(400).send({ message: "Please provide UserId." });
+    }
+
+    // Find the user based on the provided userId
+    const foundUser = await UserModel.findOne({ _id: userId });
+
+    // Check if the user is found
+    if (!foundUser) {
+      return res.status(404).send({ message: "User not found." });
+    }
+
+    // Update the user's preferences
+    await UserModel.findByIdAndUpdate(
+      { _id: userId },
+      { preferences: payload }
+    );
+
+    return res.status(200).send({ message: "User Preference Updated." });
+  } catch (error) {
+    // Handle any errors that occurred during the API request
+    res.status(500).send({ message: error.message });
+  }
+});
+
+// Handle the POST request to the '/addLocation' endpoint for adding User Location to savedLocations
+APIRouter.post("/addLocation", Auth, async (req, res) => {
+  // Middleware function 'Auth' is used to authenticate the request
+  const locationToAdd = req.body.location;
+  const userId = req.body.userId;
+
+  try {
+    // Check if userId is provided
+    if (!userId) {
+      return res.status(400).send({ message: "Please provide UserId." });
+    }
+
+    // Find the user based on the provided userId
+    const foundUser = await UserModel.findOne({ _id: userId });
+
+    // Check if the user is found
+    if (!foundUser) {
+      return res.status(404).send({ message: "User not found." });
+    }
+
+    // Check if the location is already in savedLocations
+    if (foundUser.savedLocations.some((item) => item === locationToAdd)) {
+      return res
+        .status(409)
+        .send({ message: "Location already in savedLocations." });
+    } else {
+      // Update the user's locations by pushing the new location
+      await UserModel.findByIdAndUpdate(
+        { _id: userId },
+        {
+          $addToSet: {
+            savedLocations: locationToAdd,
+          },
+        }
+      );
+    }
+
+    return res
+      .status(200)
+      .send({ message: "User location added to savedLocations." });
+  } catch (error) {
+    // Handle any errors that occurred during the API request
+    res.status(500).send({ message: error.message });
+  }
+});
+// Handle the POST request to the '/removeLocation' endpoint for removing User Location to savedLocations
+APIRouter.patch("/removeLocation", Auth, async (req, res) => {
+  const locationToRemove = req.body.location;
+  const userId = req.body.userId;
+  try {
+    // Check if userId is provided
+    if (!userId) {
+      return res.status(400).send({ message: "Please provide UserId." });
+    }
+
+    // Find the user based on the provided userId
+    const foundUser = await UserModel.findOne({ _id: userId });
+
+    // Check if the user is found
+    if (!foundUser) {
+      return res.status(404).send({ message: "User not found." });
+    }
+    // Check if the location exists in savedLocations
+    if (!foundUser.savedLocations.includes(locationToRemove)) {
+      return res.status(404).send({ message: "Location not found." });
+    }
+
+    // Remove the location from savedLocations
+    await UserModel.findByIdAndUpdate(
+      { _id: userId },
+      {
+        $pull: {
+          savedLocations: locationToRemove,
+        },
+      }
+    );
+
+    return res.status(200).send({ message: "Location removed successfully." });
   } catch (error) {
     // Handle any errors that occurred during the API request
     res.status(500).send({ message: error.message });
