@@ -12,6 +12,7 @@ const userSchema = mongoose.Schema({
     {
       type: String,
       required: true,
+      default: [],
     },
   ], // Array of saved locations, each location is of type String and required
 });
