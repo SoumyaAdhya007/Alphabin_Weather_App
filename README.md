@@ -30,8 +30,8 @@ Take 3 environment variables
 | ----------------------------------------------------------- | ------ | ----------------------------------------- | ------------------------------------------------------------------------ |
 | `/api/weather?city={cityname}&lang={language}&units={unit}` | GET    | Get current 16 days weather of the city   |                                                                          |
 | `/api/register`                                             | POST   | User Can register Their Account           | Body: `{email, password}`                                                |
-| `/api/login`                                                | POST   | User can Login their account Signup       | Body: `{email, password}`                                                |
-| `/api/userdetails`                                          | POST   | User can Get His details                  | Headers: `{Authorization}`                                               |
+| `/api/login`                                                | POST   | User can Login their account       | Body: `{email, password}`                                                |
+| `/api/userdetails`                                          | POST   | User can Get their details                  | Headers: `{Authorization}`                                               |
 | `/api/addPreference`                                        | POST   | User can save their Preference preference | Headers: `{Authorization}`, Body: `{unitPreference, languagePreference}` |
 | `/api/addLocation`                                          | POST   | User can add cities                       | Headers: `{Authorization}`, Body: `{location}`                           |
 | `/api/removeLocation`                                       | PATCH  | User can remove cities                    | Headers: `{Authorization}`, Body: `{location}`                           |
