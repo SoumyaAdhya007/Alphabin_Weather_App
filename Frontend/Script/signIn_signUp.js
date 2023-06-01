@@ -1,4 +1,4 @@
-const BaseURL = "http://localhost:4040/api/";
+const BaseURL = "https://alphabin-weather-app-backend.onrender.com/api/";
 const signup = document.getElementById("signup");
 const signin = document.getElementById("signin");
 signup.addEventListener("submit", async (event) => {
