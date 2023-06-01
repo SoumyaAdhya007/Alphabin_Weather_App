@@ -1,5 +1,5 @@
 // Define the base URL for API requests
-const BaseURL = "http://localhost:4040/api/";
+const BaseURL = "https://alphabin-weather-app-backend.onrender.com/api/";
 
 // Get the authentication token from local storage
 const token = localStorage.getItem("weather-app-login-token");
