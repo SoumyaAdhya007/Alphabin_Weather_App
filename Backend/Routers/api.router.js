@@ -128,8 +128,8 @@ APIRouter.post("/userdetails", Auth, async (req, res) => {
 // Weather endpoint to get weather data based on query parameters
 APIRouter.get("/weather", async (req, res) => {
   const city = req.query.city;
-  const unit = req.query.unit;
-  const language = req.query.language;
+  const unit = req.query.units;
+  const language = req.query.lang;
 
   // Construct the base URL for the weather API
   let url = `https://api.weatherbit.io/v2.0/forecast/daily?city=${city}`;

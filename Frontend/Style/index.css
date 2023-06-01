@@ -1,0 +1,248 @@
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+    color: whitesmoke;
+  }
+  
+  body {
+
+    background: url(https://assamtribune.com/h-upload/2022/03/01/1330873-clouds-weather.jpg?width=500&height=300);
+    background-size: cover;
+  }
+  
+  /* Header */
+  header {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    background-color: #1f5ed2;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  
+  header a {
+    color: whitesmoke;
+    font-size: 20px;
+  }
+  
+  header a:hover {
+    color: #6d7187;
+  }
+  
+  /* Heading */
+  .heading {
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: whitesmoke;
+  }
+  
+  /* Search section */
+  .search-div {
+    width: 30%;
+    margin: auto;
+    background-color: whitesmoke;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 20px;
+    padding: 10px;
+  }
+  
+  .search-div input {
+    /* padding: 5px; */
+    width: 90%;
+    border: none;
+    color: black;
+    font-size: 25px;
+    font-weight: 800;
+  }
+  
+  .search-div input:focus {
+    outline: none;
+  }
+  
+  .search-div input::placeholder {
+    font-size: 20px;
+  }
+  
+  .search-div i {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-size: 2rem;
+    color: #293368;
+  }
+  .search-div i:hover {
+    color: #1f5ed2;
+  }
+  /* Preference section */
+  .preference-div {
+    width: 50%;
+    margin: auto;
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    background-color: #798cff;
+    color: black;
+    padding: 5px;
+    border-radius: 20px;
+  }
+  
+  .preference-div {
+    text-align: justify;
+  }
+  
+  .preference-div>div:nth-child(1) {
+    width: 85%;
+  }
+  
+  .preference-div>div:nth-child(2) {
+    width: 13%;
+    padding: 10px 20px;
+  }
+  
+  .preference-div>div:nth-child(2) button {
+    width: 100%;
+    padding: 2px 20px;
+    background-color: #148d56;
+    border: none;
+    border-radius: 5px;
+  }
+  
+  label,
+  select,
+  option {
+    font-size: 16px;
+    color: black;
+    font-weight: 600;
+    padding: 5px;
+  }
+  
+  #save-location {
+    float: right;
+    padding: 7px 13px;
+    background-color: #155e59;
+    border: none;
+    border-radius: 5px;
+    font-weight: 500;
+  }
+  
+  .remove-location {
+    float: right;
+    padding: 7px 13px;
+    background-color: #ee4254;
+    border: none;
+    border-radius: 5px;
+    font-weight: 500;
+  }
+  
+  /* Weather display section */
+  .weather-child-div {
+    width: 80%;
+    margin: auto;
+    margin-top: 20px;
+    height: auto;
+    background-color: #293368;
+    border-radius: 25px;
+    padding: 20px;
+  }
+  
+  .forecat-div {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .current-day {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .current-day>div {
+    width: 80%;
+    margin: auto;
+  }
+  
+  .current-day-right-div {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  
+  .weather__body {
+    text-align: center;
+    margin-top: 1rem;
+  }
+  
+  .weather__datetime {
+    margin-bottom: 2rem;
+    font-size: 14px;
+  }
+  
+  .weather__forecast {
+    background: #1e1e1e;
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border-radius: 30px;
+  }
+  
+  .weather__icon i {
+    font-size: 60px;
+  }
+  
+  .weather__temperature {
+    font-size: 1.75rem;
+  }
+  
+  .weather__minmax {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .weather__minmax p {
+    font-size: 14px;
+    margin: 0.5rem;
+  }
+  
+  .weather__card {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    background: #252e58;
+    padding: 1rem;
+    border-radius: 10px;
+  }
+  
+  .weather__card i {
+    font-size: 1.5rem;
+    margin-right: 1rem;
+  }
+  
+  .weather__card p {
+    font-size: 14px;
+  }
+  
+  .future-days-div {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  
+  .future-days-child-div {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    background: #252e58;
+    padding: 1rem;
+    border-radius: 10px;
+  }
+  
+  .future-days-child-div i {
+    font-size: 30px;
+  }
+  

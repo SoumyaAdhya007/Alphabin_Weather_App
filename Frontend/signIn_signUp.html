@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Login and Signup Form</title>
+    <link rel="stylesheet" type="text/css" href="./Style/signUp_login.css" />
+  </head>
+  <body>
+    <header>
+      <a href="./signIn_signUp.html">Sign/login</a>
+      <a href="./index.html">Weather</a>
+    </header>
+    <!-- The header section with navigation links -->
+
+    <div class="container">
+      <div class="form-container">
+        <h1>Signup</h1>
+        <form id="signup">
+          <!-- Signup form -->
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input
+              type="email"
+              id="email"
+              placeholder="Enter your email"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="password">Password:</label>
+            <input
+              type="password"
+              id="password"
+              placeholder="Enter your password"
+              required
+            />
+          </div>
+          <input type="submit" class="btn" value="Signup" />
+        </form>
+      </div>
+      <div class="form-container">
+        <h1>Login</h1>
+        <form id="signin">
+          <!-- Login form -->
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input
+              type="email"
+              id="email"
+              placeholder="Enter your email"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="password">Password:</label>
+            <input
+              type="password"
+              id="password"
+              placeholder="Enter your password"
+              required
+            />
+          </div>
+          <input type="submit" id="login" class="btn" value="Login" />
+        </form>
+      </div>
+    </div>
+    <!-- The container div containing the signup and login forms -->
+  </body>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <!-- Include SweetAlert2 library for displaying alerts -->
+
+  <script src="./Script/signIn_signUp.js"></script>
+  <!-- Include the JavaScript file for handling form submission and actions -->
+</html>
