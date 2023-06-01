@@ -1,0 +1,95 @@
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+  }
+  /* Apply global styles to all elements */
+  
+  body {
+    background: url(https://assamtribune.com/h-upload/2022/03/01/1330873-clouds-weather.jpg?width=500&height=300);
+    background-size: cover;
+  }
+  /* Set the background image for the body and adjust its size */
+  
+  header {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    background-color: #1f5ed2;
+    color: whitesmoke;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  /* Style the header element with flexbox properties and background color */
+  
+  header a {
+    color: whitesmoke;
+    font-size: 20px;
+  }
+  /* Style the links within the header element */
+  
+  header a:hover {
+    color: #6d7187;
+  }
+  /* Style the hover effect for the links within the header element */
+  
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100vh;
+  }
+  /* Style the main container with flexbox properties and adjust its height */
+  
+  .form-container {
+    width: 48%;
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 10px;
+  }
+  /* Style the form container with background color, border radius, padding, and margin */
+  
+  h1 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  /* Style the heading with centered text alignment and bottom margin */
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  /* Style the form groups with bottom margin */
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  /* Style the labels with block display and bottom margin */
+  
+  input[type="text"],
+  input[type="email"],
+  input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  /* Style the text, email, and password input fields with width, padding, border, and border radius */
+  
+  .btn {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  /* Style the buttons with background color, text color, border, padding, border radius, and cursor */
+  
+  .btn:hover {
+    background-color: #0056b3;
+  }
+  /* Style the hover effect for the buttons */
+  
